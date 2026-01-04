@@ -55,7 +55,7 @@ class Model(abc.ABC):
                 )
             self._inference_sessions[key] = inference_session
 
-            providers = inference_session.get_providers()
+            #providers = inference_session.get_providers()
         logger.info(
             "Initialized inference sessions with providers {providers!r}",
             providers=providers,
