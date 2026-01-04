@@ -32,6 +32,8 @@ class Model(abc.ABC):
                 if providers is None:
                     if "CUDAExecutionProvider" in onnxruntime.get_available_providers():
                         providers = ["CUDAExecutionProvider", "CPUExecutionProvider"]
+                    elif "DmlExecutionProvider" in available_providers:
+                        providers = ["DmlExecutionProvider", "CPUExecutionProvider"]
                     else:
                         providers = ["CPUExecutionProvider"]
                 inference_session = onnxruntime.InferenceSession(
